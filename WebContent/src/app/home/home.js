@@ -135,36 +135,39 @@ angular.module( 'cfjs.home', [
 			angular.extend($scope, {
 				geojson: {
 					data: geoJson,
-					style: {
-						fillColor: "green",
-						weight: 2,
-						opacity: 1,
-						color: "white",
-						dashArray: '3',
-						fillOpacity: 0.7
+					pointToLayer: function(feature, latlng){
+						return L.circleMarker(latlng, {
+							radius:8,
+							fillColor: "#000",
+							color: "#000",
+							opacity: 1,
+							fillOpacity: 1
+						});
 					}
 				}
 			});
 		}
 		
-//		// Get the countries geojson data from a JSON
-//	    $http.get("examples/json/JPN.geo.json").success(function(data, status) {
-//	        angular.extend($scope, {
-//	            geojson: {
-//	                data: data,
-//	                style: {
-//	                    fillColor: "green",
-//	                    weight: 2,
-//	                    opacity: 1,
-//	                    color: 'white',
-//	                    dashArray: '3',
-//	                    fillOpacity: 0.7
-//	                }
-//	            }
-//	        });
-//	    });
+/*
+	    $http.get("service/").success(function(data, status) {
+	        angular.extend($scope, {
+	            geojson: {
+	                data: data,
+					pointToLayer: function(feature, latlng){
+						return L.circleMarker(latlng, {
+							radius:8,
+							fillColor: "#000",
+							color: "#000",
+							opacity: 1,
+							fillOpacity: 1
+						});
+	            }
+	        });
+	    });
 	};
-	
+*/
+
+
 	$scope.selectedMarkerDetail = {};
 	$scope.openMarkerDetail = function(marker) {		
 		$scope.selectedMarkerDetail = {
