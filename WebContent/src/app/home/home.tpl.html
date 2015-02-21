@@ -1,0 +1,77 @@
+<leaflet defaults="defaults" center="center" width="100%" height="{{height}}" controls="controls" geojson="geojson" markers="markers" ></leaflet>
+
+<div id="leftSidebar" class="sidebar collapsed">
+	<div class="sidebar-content active">
+	    <div class="sidebar-pane" id="home">
+	        <h2>Open Data 2015</h2>
+
+			<form class="form-vertical">
+				<div class="form-group">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search for...">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="submit" ng-click="performSearch()"><span class="fa fa-search"></span></button>
+						</span>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">Advanced Search Criteria</div>
+					<div class="panel-body">
+						<div class="form-group">
+							<label>Year Range:&nbsp;</label>
+							<div class="btn-group">
+								<div class="dropdown">
+									<button class="btn btn-default dropdown-toggle" type="button" id="startYearRange" data-toggle="dropdown" aria-expanded="true">
+										{{startYear}}
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+										<li role="presentation" ng-repeat="year in years"><a role="menuitem" tabindex="-1" href="#">{{year}}</a></li>
+									</ul>
+								</div>
+							</div>
+							-
+							<div class="btn-group">
+								<div class="dropdown">
+									<button class="btn btn-default dropdown-toggle" type="button" id="endYearRange" data-toggle="dropdown" aria-expanded="true">
+										{{endYear}}
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+										<li role="presentation" ng-repeat="year in years"><a role="menuitem" tabindex="-1" href="#">{{year}}</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="rightSidebar">
+	<div class="panel panel-default">
+		 <div class="panel-heading">Institution Details</div>
+		 <div class="panel-body">
+			<dl>
+				<dt>Name</dt>
+				<dd>{{selectedMarkerDetail.name}}
+				<dt>Address</dt>
+				<dd>{{selectedMarkerDetail.address}}</dd>
+				<dt>Partners (total {{selectedMarkerDetail.partners.length}})</dt>
+				<dd>
+					<ul>
+						<li ng-repeat="partner in selectedMarkerDetail.partners">{{partner.name}}</li>
+					</ul>
+				</dd>
+				<dt>Students (total {{selectedMarkerDetail.students.length}})</dt>
+				<dd>
+					<ul>
+						<li ng-repeat="student in selectedMarkerDetail.students">{{student.name}} - {{student.award}}$</li>
+					</ul>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>

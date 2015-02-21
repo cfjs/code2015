@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="cfjs" ng-controller="AppCtrl">
+  <head>
+    <title ng-bind="pageTitle"></title>
+
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- font awesome from BootstrapCDN -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+
+    <!-- it's stupid to have to load it here, but this is for the +1 button -->
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+      { "parsetags": "explicit" }
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid" ui-view="main"></div>
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <div class="footer-inner">
+          <p>
+            (c) 2015 Christian Béland, Frédéric Morin & Jean-Sébastien Thivierge
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
