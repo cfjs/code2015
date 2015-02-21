@@ -58,6 +58,9 @@ angular.module( 'cfjs.home', [
         },
         defaults: {
             tileLayer: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+            tileLayerOptions: {
+                attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            },
             icon: {
                 url: 'http://cdn.leafletjs.com/leaflet-0.6.4/images/marker-icon.png',
                 retinaUrl: 'http://cdn.leafletjs.com/leaflet-0.6.4/images/marker-icon@2x.png',
@@ -183,20 +186,28 @@ angular.module( 'cfjs.home', [
     	rightSidebar.show();
 	};
 	
-	 $scope.$on('leafletDirectiveMap.layeradd', function(event){
-//		 console.log('layeradd');
-//		 
-//	     var marker = event.layer,
-//	         feature = marker.feature;
-//
-//	     // Create custom popup content
-//	     var popupContent =  'allo';
-//
-//	     // http://leafletjs.com/reference.html#popup
-//	     marker.bindPopup(popupContent,{
-//	         closeButton: false,
-//	         minWidth: 320
-//	     });
+	 $scope.$on('leafletDirectiveMap.layeradd', function(scope, event){
+		 event = event.leafletEvent;
+		 console.log(event);
+		 
+	     var marker = event.layer;
+
+	     // http://leafletjs.com/reference.html#popup
+	     if (marker){
+//		     marker.bindPopup(popupContent,{
+//		         closeButton: false,
+//		         minWidth: 320
+//		     });
+		     marker.on('click', function(e) {
+		    	 if (e.target.feature) {
+		    		 $scope.openMarkerDetail(e.target.feature.properties);
+		    	 }
+		     });
+		     marker.on('mouseover', function(e) {
+		    	 //$scope.openMarkerDetail(e.target.feature.properties);
+		    	 console.log(e);
+		     });
+	     }
      });
 }])
 

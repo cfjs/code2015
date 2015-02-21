@@ -51,27 +51,23 @@
 </div>
 
 <div id="rightSidebar">
-	<div class="panel panel-default">
-		 <div class="panel-heading">Institution Details</div>
-		 <div class="panel-body">
-			<dl>
-				<dt>Name</dt>
-				<dd>{{selectedMarkerDetail.name}}
-				<dt>Address</dt>
-				<dd>{{selectedMarkerDetail.address}}</dd>
-				<dt>Partners (total {{selectedMarkerDetail.partners.length}})</dt>
-				<dd>
-					<ul>
-						<li ng-repeat="partner in selectedMarkerDetail.partners">{{partner.name}}</li>
-					</ul>
-				</dd>
-				<dt>Students (total {{selectedMarkerDetail.students.length}})</dt>
-				<dd>
-					<ul>
-						<li ng-repeat="student in selectedMarkerDetail.students">{{student.name}} - {{student.award}}$</li>
-					</ul>
-				</dd>
-			</dl>
-		</div>
-	</div>
+	 <h2>Institution Details</h2>
+	<dl>
+		<dt>Name</dt>
+		<dd>{{selectedMarkerDetail.name}}
+		<dt>Address</dt>
+		<dd>{{selectedMarkerDetail.address}}</dd>
+		<dt>Partners (total {{selectedMarkerDetail.partners.length}})</dt>
+		<dd>
+			<ul>
+				<li ng-repeat="partner in selectedMarkerDetail.partners">{{partner.name}}</li>
+			</ul>
+		</dd>
+		<dt>Students (total {{selectedMarkerDetail.students.length}})</dt>
+		<dd>
+			<ul>
+				<li ng-repeat="student in selectedMarkerDetail.students">{{student.name}} - {{student.award}}$</li>
+			</ul>
+		</dd>
+	</dl>
 </div>

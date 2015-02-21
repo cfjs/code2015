@@ -325,29 +325,25 @@ angular.module("home/home.tpl.html", []).run(["$templateCache", function($templa
     "</div>\n" +
     "\n" +
     "<div id=\"rightSidebar\">\n" +
-    "	<div class=\"panel panel-default\">\n" +
-    "		 <div class=\"panel-heading\">Institution Details</div>\n" +
-    "		 <div class=\"panel-body\">\n" +
-    "			<dl>\n" +
-    "				<dt>Name</dt>\n" +
-    "				<dd>{{selectedMarkerDetail.name}}\n" +
-    "				<dt>Address</dt>\n" +
-    "				<dd>{{selectedMarkerDetail.address}}</dd>\n" +
-    "				<dt>Partners (total {{selectedMarkerDetail.partners.length}})</dt>\n" +
-    "				<dd>\n" +
-    "					<ul>\n" +
-    "						<li ng-repeat=\"partner in selectedMarkerDetail.partners\">{{partner.name}}</li>\n" +
-    "					</ul>\n" +
-    "				</dd>\n" +
-    "				<dt>Students (total {{selectedMarkerDetail.students.length}})</dt>\n" +
-    "				<dd>\n" +
-    "					<ul>\n" +
-    "						<li ng-repeat=\"student in selectedMarkerDetail.students\">{{student.name}} - {{student.award}}$</li>\n" +
-    "					</ul>\n" +
-    "				</dd>\n" +
-    "			</dl>\n" +
-    "		</div>\n" +
-    "	</div>\n" +
+    "	 <h2>Institution Details</h2>\n" +
+    "	<dl>\n" +
+    "		<dt>Name</dt>\n" +
+    "		<dd>{{selectedMarkerDetail.name}}\n" +
+    "		<dt>Address</dt>\n" +
+    "		<dd>{{selectedMarkerDetail.address}}</dd>\n" +
+    "		<dt>Partners (total {{selectedMarkerDetail.partners.length}})</dt>\n" +
+    "		<dd>\n" +
+    "			<ul>\n" +
+    "				<li ng-repeat=\"partner in selectedMarkerDetail.partners\">{{partner.name}}</li>\n" +
+    "			</ul>\n" +
+    "		</dd>\n" +
+    "		<dt>Students (total {{selectedMarkerDetail.students.length}})</dt>\n" +
+    "		<dd>\n" +
+    "			<ul>\n" +
+    "				<li ng-repeat=\"student in selectedMarkerDetail.students\">{{student.name}} - {{student.award}}$</li>\n" +
+    "			</ul>\n" +
+    "		</dd>\n" +
+    "	</dl>\n" +
     "</div>\n" +
     "");
 }]);
