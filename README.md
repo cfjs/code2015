@@ -12,8 +12,10 @@ The application builds on OpenData provided by the “Social Sciences and Humani
 * http://www.nserc-crsng.gc.ca/opendata/NSERC_GRT_FYR2012_PARTNER.csv
 * http://www.nserc-crsng.gc.ca/opendata/NSERC_GRT_FYR2012_CO_APPLICANT.csv
 * http://www.nserc-crsng.gc.ca/opendata/NSERC_GRT_FYR2012_AWARD.csv
+* OpenStreetMap basemap
 
 ## The application is built using the following technologies and resources.
 
 * HTML, JavaScript, AngularJS, LeafletJS, PHP, PostgreSQL, PostGIS, GeoJSON
 * http://www.findlatitudeandlongitude.com/batch-geocode/
+* 
