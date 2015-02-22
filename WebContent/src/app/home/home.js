@@ -92,17 +92,19 @@ angular.module( 'cfjs.home', [
     $timeout(function() {
         leftSidebar.show();
     }, 500);
-
+    
     var rightSidebar = L.control.sidebar('rightSidebar', {
         position: 'right'
     });
     
     $scope.controls.custom.push(rightSidebar);
+
+    var leftSideBarButton = L.easyButton('fa-bars', function() {
+    	rightSidebar.hide();
+        leftSidebar.toggle();
+	}, 'Open side menu', '');
     
-//    $timeout(function() {
-//    	leftSidebar.hide();
-//        rightSidebar.show();
-//    }, 3500);
+    $scope.controls.custom.push(leftSideBarButton);
     
 	$scope.performSearch = function() {
 		console.log('search performed');
@@ -166,9 +168,9 @@ angular.module( 'cfjs.home', [
 						});
 	            }
 	        });
-	    });
+	    });*/
 	};
-*/
+
 
 
 	$scope.selectedMarkerDetail = {};
@@ -196,7 +198,7 @@ angular.module( 'cfjs.home', [
 	     var marker = event.layer;
 
 	     // http://leafletjs.com/reference.html#popup
-	     if (marker){
+	     if (marker) {
 //		     marker.bindPopup(popupContent,{
 //		         closeButton: false,
 //		         minWidth: 320
