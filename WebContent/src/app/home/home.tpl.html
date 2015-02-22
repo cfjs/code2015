@@ -65,7 +65,7 @@
 			<ul class="list-group">
 				<li class="list-group-item" ng-repeat="student in getCurrentStudents(currentPage, pageSize)">{{student.name}} - {{student.award}}$<a href="{{retrieveLinkedInSearchUrl(student)}}" target="_blank" class="badge linkedin">Linked&nbsp;<span class="fa fa-linkedin-square"></span></a></li>
 			</ul>
-			<pagination total-items="selectedMarkerDetail.students.length" ng-model="currentPage" max-size="pageSize"></pagination>
+			<pagination total-items="selectedMarkerDetail.students.length" page="currentPage" items-per-page="pageSize" max-size="5"></pagination>
 		</dd>
 	</dl>
 </div>
