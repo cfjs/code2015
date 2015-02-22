@@ -3,14 +3,17 @@
 <div id="leftSidebar" class="sidebar collapsed">
 	<div class="sidebar-content active">
 	    <div class="sidebar-pane" id="home">
-	        <h2>Open Data 2015</h2>
+	        <h2>
+	        	Open Data 2015&nbsp;
+				<span class="fa fa-spinner fa-spin text-muted" ng-show="searching"></span>
+			</h2>
 
 			<form class="form-vertical">
 				<div class="form-group">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search for..." ng-model="keywords">
 						<span class="input-group-btn">
-							<button class="btn btn-default" type="submit" ng-click="performSearch()"><span class="fa fa-search"></span></button>
+							<button class="btn btn-default" type="submit" ng-click="performSearch()" ng-disabled="searching"><span class="fa fa-search"></span></button>
 						</span>
 					</div>
 				</div>

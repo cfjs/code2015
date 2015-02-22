@@ -106,55 +106,25 @@ angular.module( 'cfjs.home', [
     
     $scope.controls.custom.push(leftSideBarButton);
     
+    $scope.searching = false;
 	$scope.performSearch = function() {
-		leftSidebar.hide();
-/*
-		var geoJson = {
-			"type": "FeatureCollection",
-			"features": [{
-			    "type": "Feature",
-			    "id": '0',
-			    "properties": {
-			        "name": "Université Laval",
-			        "address": "123 Fake Street",
-			        "popupContent": "To Be Determined"
-			    },
-			    "geometry": {
-			        "type": "Point",
-			        "coordinates": [-104.99404, 39.75621]
-			    }
-			}]
-		};*/
-		/*
-		// TODO Center map on results
-		if (geoJson.features.length > 0) {
-			var lat = geoJson.features[0].geometry.coordinates[1];
-			var lng = geoJson.features[0].geometry.coordinates[0];
-			$scope.center = {
-				lat: lat,
-				lng: lng,
-				zoom: 3
-			};
-			
-			angular.extend($scope, {
-				geojson: {
-					data: geoJson,
-					pointToLayer: function(feature, latlng){
-						return L.circleMarker(latlng, {
-							radius:8,
-							fillColor: "#000",
-							color: "#000",
-							opacity: 1,
-							fillOpacity: 1
-						});
-					}
-				}
-			});
-		}
-		*/
-
-		var query = "service/?keywords=" + $scope.keywords; 
-	    $.get(query).success(function(data, status) {
+		$scope.searching = true;
+//		$.ajax({
+//			  url: "http://167.88.46.149/service?keywords=" + $scope.keywords,
+//			  type: "GET",
+//			  data: {},
+//			    crossDomain: true,
+//			  success: callbackSuccess,
+//			  error: callbackFailure,
+//			  dataType: "jsonp",
+//			  username: "user",
+//			  password: "password123",
+//			  contentType: "application/json"
+//			});
+		var query = "service/?keywords=" + $scope.keywords;
+		$.get(query).success(callbackSuccess).fail(callbackFailure);
+		
+		function callbackSuccess(data, status) {
 	        angular.extend($scope, {
 	            geojson: {
 	                data: data,
@@ -177,9 +147,15 @@ angular.module( 'cfjs.home', [
 					}
 				}
 	        });
-	    });
+			leftSidebar.hide();
+			$scope.searching = false;
+		}
 		
-		
+		function callbackFailure(error) {
+			// TODO message to user
+			console.log(error);
+			$scope.searching = false;
+		}
 	};
 
 
