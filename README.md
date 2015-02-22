@@ -2,7 +2,7 @@
 
 ## Description
 
-4Play is a tool based on OpenSource that allows searching for academics based on keywords and geolocations. It maps how much money is awarded by institutions over a fiscal year and allows searching for information with keywords.
+Research.Me is a tool based on OpenSource that allows searching for academics based on keywords and geolocations. It maps how much money is awarded by institutions over a fiscal year and allows searching for information with keywords.
 
 The application builds on OpenData provided by the “Social Sciences and Humanities Research Concil” and the “Natural Sciences and Engineering Research Concil”. 
 
@@ -19,4 +19,3 @@ The application builds on OpenData provided by the “Social Sciences and Humani
 * HTML, JavaScript, AngularJS, LeafletJS, PHP, PostgreSQL, PostGIS, GeoJSON
 * http://www.findlatitudeandlongitude.com/batch-geocode/
 * http://findicons.com/icon/558803/university
-
