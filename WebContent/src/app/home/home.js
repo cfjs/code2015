@@ -214,6 +214,14 @@ angular.module( 'cfjs.home', [
 		     });
 	     }
      });
+	 
+	 $scope.retrieveLinkedInSearchUrl = function(person) {
+		 var names = person.name.split(',');
+		 var firstName = names[0].trim();
+		 var lastName = names.length > 1 ? names[1].trim() : '';
+		 
+		 return 'https://www.linkedin.com/pub/dir/?first=' + firstName + '&last=' + lastName + '&search=Search';
+	 };
 }])
 
 ;

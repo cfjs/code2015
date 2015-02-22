@@ -65,8 +65,8 @@
 		</dd>
 		<dt>Students (total {{selectedMarkerDetail.students.length}})</dt>
 		<dd>
-			<ul>
-				<li ng-repeat="student in selectedMarkerDetail.students">{{student.name}} - {{student.award}}$</li>
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="student in selectedMarkerDetail.students">{{student.name}} - {{student.award}}$<a href="{{retrieveLinkedInSearchUrl(student)}}" target="_blank" class="badge linkedin">Linked&nbsp;<span class="fa fa-linkedin-square"></span></a></li>
 			</ul>
 		</dd>
 	</dl>
