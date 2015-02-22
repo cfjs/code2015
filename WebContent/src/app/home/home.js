@@ -178,9 +178,6 @@ angular.module( 'cfjs.home', [
 		$scope.selectedMarkerDetail = {
 			name: "Université Laval",
 			address: "123 Fake Street",
-			partners: [{
-				name: "ETS"
-			}],
 			students: [{
 				name: "JS",
 				award: '400k'
