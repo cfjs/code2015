@@ -159,12 +159,20 @@ angular.module( 'cfjs.home', [
 	            geojson: {
 	                data: data,
 					pointToLayer: function(feature, latlng){
+					/*
 						return L.circleMarker(latlng, {
 							radius:8,
 							fillColor: "#000",
 							color: "#000",
 							opacity: 1,
 							fillOpacity: 1
+						});
+						
+					*/
+						return L.marker(latlng, {
+							icon: new L.icon({ 
+								iconUrl: "assets/university.png"
+							})
 						});
 					}
 				}
@@ -213,8 +221,8 @@ angular.module( 'cfjs.home', [
 	 
 	 $scope.retrieveLinkedInSearchUrl = function(person) {
 		 var names = person.name.split(',');
-		 var firstName = names[0].trim();
-		 var lastName = names.length > 1 ? names[1].trim() : '';
+		 var lastName = names[0].trim();
+		 var firstName = names.length > 1 ? names[1].trim() : '';
 		 
 		 return 'https://www.linkedin.com/pub/dir/?first=' + firstName + '&last=' + lastName + '&search=Search';
 	 };
