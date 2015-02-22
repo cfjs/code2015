@@ -108,6 +108,7 @@ angular.module( 'cfjs.home', [
     
     $scope.searching = false;
 	$scope.performSearch = function() {
+		$scope.currentPage = 1;
 		$scope.searching = true;
 //		$.ajax({
 //			  url: "http://167.88.46.149/service/?keywords=" + $scope.keywords,
