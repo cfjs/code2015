@@ -75,7 +75,6 @@ module.exports = {
           'vendor/leaflet-sidebar/src/L.Control.Sidebar.css'
     ],
     assets: [
-         'vendor/leaflet/**'
     ]
   },
 };

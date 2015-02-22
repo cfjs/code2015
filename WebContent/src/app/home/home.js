@@ -107,7 +107,6 @@ angular.module( 'cfjs.home', [
     $scope.controls.custom.push(leftSideBarButton);
     
 	$scope.performSearch = function() {
-		console.log('search performed');
 		leftSidebar.hide();
 
 		var geoJson = {
@@ -190,7 +189,6 @@ angular.module( 'cfjs.home', [
 	
 	 $scope.$on('leafletDirectiveMap.layeradd', function(scope, event){
 		 event = event.leafletEvent;
-		 console.log(event);
 		 
 	     var marker = event.layer;
 
@@ -207,7 +205,7 @@ angular.module( 'cfjs.home', [
 		     });
 		     marker.on('mouseover', function(e) {
 		    	 //$scope.openMarkerDetail(e.target.feature.properties);
-		    	 console.log(e);
+		    	 //console.log(e);
 		     });
 	     }
      });
@@ -218,6 +216,15 @@ angular.module( 'cfjs.home', [
 		 var lastName = names.length > 1 ? names[1].trim() : '';
 		 
 		 return 'https://www.linkedin.com/pub/dir/?first=' + firstName + '&last=' + lastName + '&search=Search';
+	 };
+	 
+	 $scope.selectYear = function(isStart, year) {
+		 if (isStart) {
+			 $scope.startYear = year;
+		 }
+		 else {
+			 $scope.endYear = year;
+		 }
 	 };
 }])
 
