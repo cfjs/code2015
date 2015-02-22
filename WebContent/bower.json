@@ -12,6 +12,7 @@
     "leaflet": "~0.7.3",
     "angular-leaflet-directive": "~0.7.11",
     "leaflet-sidebar": "~0.1.6",
-    "L.EasyButton": "*"
+    "L.EasyButton": "*",
+    "angular-ui": "~0.4.0"
   }
 }

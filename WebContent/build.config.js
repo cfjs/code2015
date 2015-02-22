@@ -68,7 +68,8 @@ module.exports = {
       'vendor/angular-leaflet-directive/dist/angular-leaflet-directive.js',
       'vendor/leaflet-sidebar/src/L.Control.Sidebar.js',
       'vendor/jquery/dist/jquery.js',
-      'vendor/L.EasyButton/easy-button.js'
+      'vendor/L.EasyButton/easy-button.js',
+      'vendor/angular-ui/build/angular-ui.js'
     ],
     css: [
           'vendor/leaflet/dist/leaflet.css',

@@ -226,6 +226,17 @@ angular.module( 'cfjs.home', [
 			 $scope.endYear = year;
 		 }
 	 };
+	 
+	 $scope.currentPage = 0;
+	 $scope.pageSize = 10;
+	 $scope.getCurrentStudents = function(currentPage, pageSize) {
+		 if ($scope.selectedMarkerDetail.students && $scope.selectedMarkerDetail.students.length > 0) {
+			 return $scope.selectedMarkerDetail.students.slice(currentPage*pageSize, Math.min($scope.selectedMarkerDetail.students.length, currentPage*pageSize+pageSize));
+		 }
+		 else {
+			 return [];
+		 }
+	 };
 }])
 
 ;
