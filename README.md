@@ -4,7 +4,7 @@
 
 Research.Me is a tool based on OpenSource that allows searching for academics based on keywords and geolocations. It maps how much money is awarded by institutions over a fiscal year and allows searching for information with keywords.
 
-The goal is to allow company to find young experts easily and to promote acamedics who might just be entering the job market.
+The goal is to allow company to find young experts easily and to promote academics who might just be entering the job market.
 
 The application builds on OpenData provided by the “Social Sciences and Humanities Research Council” and the “Natural Sciences and Engineering Research Council”. 
 
