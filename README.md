@@ -6,6 +6,8 @@ Research.ME is a tool based on OpenSource that allows searching for academics ba
 
 The goal is to allow company to find young experts easily and to promote academics who might just be entering the job market.
 
+Try it:  http://researchme.biz/
+
 The application builds on OpenData provided by the “Social Sciences and Humanities Research Council” and the “Natural Sciences and Engineering Research Council”. 
 
 ## DataSets
