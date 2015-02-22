@@ -160,7 +160,6 @@ angular.module( 'cfjs.home', [
 	};
 
 
-
 	$scope.selectedMarkerDetail = {};
 	$scope.openMarkerDetail = function(marker) {		
 		$scope.selectedMarkerDetail = {
@@ -222,6 +221,10 @@ angular.module( 'cfjs.home', [
 		 else {
 			 return [];
 		 }
+	 };
+	 
+	 $scope.retrieveStudentDisplay = function(student) {
+		 return student.name + ' - ' + student.award + '$';
 	 };
 }])
 
