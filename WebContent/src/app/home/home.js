@@ -108,7 +108,7 @@ angular.module( 'cfjs.home', [
     
 	$scope.performSearch = function() {
 		leftSidebar.hide();
-
+/*
 		var geoJson = {
 			"type": "FeatureCollection",
 			"features": [{
@@ -124,8 +124,8 @@ angular.module( 'cfjs.home', [
 			        "coordinates": [-104.99404, 39.75621]
 			    }
 			}]
-		};
-		
+		};*/
+		/*
 		// TODO Center map on results
 		if (geoJson.features.length > 0) {
 			var lat = geoJson.features[0].geometry.coordinates[1];
@@ -151,9 +151,9 @@ angular.module( 'cfjs.home', [
 				}
 			});
 		}
-		
-/*
-	    $http.get("service/").success(function(data, status) {
+		*/
+
+	    $.get("service/").success(function(data, status) {
 	        angular.extend($scope, {
 	            geojson: {
 	                data: data,
@@ -165,9 +165,12 @@ angular.module( 'cfjs.home', [
 							opacity: 1,
 							fillOpacity: 1
 						});
-	            }
+					}
+				}
 	        });
-	    });*/
+	    });
+		
+		
 	};
 
 
