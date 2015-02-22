@@ -18,4 +18,5 @@ The application builds on OpenData provided by the “Social Sciences and Humani
 
 * HTML, JavaScript, AngularJS, LeafletJS, PHP, PostgreSQL, PostGIS, GeoJSON
 * http://www.findlatitudeandlongitude.com/batch-geocode/
-* 
+* http://findicons.com/icon/558803/university
+
