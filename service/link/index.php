@@ -26,13 +26,12 @@ if (!$year_end) {
 
 $escaped_keywords =pg_escape_string($keywords);
 
-$sql = "select DISTINCT (select row_to_json(row) from (select  array_agg(a.id) as ids, array_agg(a.type) as types, " 
-     . "array_agg(a.name)as names, array_agg(a.award) as awards, array_agg(a.fiscal_year) as fiscal_years) row)::varchar as students, " 
-     . "sum(a.award) as awards, a.address, a.institution, "
-     . "a.geo from awards a WHERE a.fiscal_year >= {$year_start} "
+$sql = "select a.id, (select row_to_json(row) from (select  array_agg(a2.id) as ids, array_agg(a2.type) as types,"
+     . " array_agg(a2.name)as names, array_agg(a2.award) as awards, array_agg(a2.fiscal_year) as fiscal_years "
+     . "FROM awards a2 where a2.id = a.id) row) as students, a.app_institution, a.coapp_institution, a.association_geo from associations a "
+     . "WHERE a.fiscal_year >= {$year_start} "
      . "AND a.fiscal_year <= {$year_end}" 
-     . " AND (a.keywords ilike '%{$escaped_keywords}%' OR a.title ilike '%{$escaped_keywords}%' OR a.summary ilike '%{$escaped_keywords}%') "
-     . "GROUP BY a.address, a.institution, a.geo LIMIT {$limit}";
+     . " AND (a.keywords ilike '%{$escaped_keywords}%' OR a.title ilike '%{$escaped_keywords}%' OR a.summary ilike '%{$escaped_keywords}%') LIMIT {$limit}";
 
 error_log($sql);
 
@@ -52,15 +51,15 @@ while ($row = pg_fetch_assoc($result)) {
    $line = new stdClass();
    $line->type = "Feature";
 
-   $line->geometry = json_decode($row['geo']);
+   $line->geometry = json_decode($row['association_geo']);
 
    $line->properties = new stdClass();
-   $line->properties->name = $row['institution'];
-   $line->properties->address = $row['address'];
-   $line->properties->awards = $row['awards'];
-   $students = json_decode($row['students']);
-   //var_dump($students);
+   $line->properties->name = $row['app_institution'];   
+   $line->properties->coapp_name = $row['coapp_institution'];
+   $line->properties->id = $row['id'];
 
+   $students = json_decode($row['students']);
+   
    $student_ids = array_values($students->ids);
    $student_types = array_values($students->types);
    $student_names = array_values($students->names);
