@@ -110,10 +110,9 @@ angular.module( 'cfjs.home', [
 	$scope.performSearch = function() {
 		$scope.searching = true;
 //		$.ajax({
-//			  url: "http://167.88.46.149/service?keywords=" + $scope.keywords,
+//			  url: "http://167.88.46.149/service/?keywords=" + $scope.keywords,
 //			  type: "GET",
-//			  data: {},
-//			    crossDomain: true,
+//			  crossDomain: true,
 //			  success: callbackSuccess,
 //			  error: callbackFailure,
 //			  dataType: "jsonp",
