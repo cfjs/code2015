@@ -107,6 +107,7 @@ angular.module( 'cfjs.home', [
     $scope.controls.custom.push(leftSideBarButton);
     
 	$scope.performSearch = function() {
+		console.log($scope.keywords);
 		leftSidebar.hide();
 /*
 		var geoJson = {
@@ -153,7 +154,7 @@ angular.module( 'cfjs.home', [
 		}
 		*/
 
-	    $.get("service/").success(function(data, status) {
+	    $.get("http://167.88.46.149/service/").success(function(data, status) {
 	        angular.extend($scope, {
 	            geojson: {
 	                data: data,
