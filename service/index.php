@@ -9,6 +9,9 @@ $keywords = $_GET['keywords'];
 $year_start = $_GET['year_start'];
 $year_end = $_GET['year_end'];
 
+// Implement paging instead!
+$limit = 5000;
+
 if (!$keywords) {
  $keyword = "";
 }
@@ -23,13 +26,13 @@ if (!$year_end) {
 
 $escaped_keywords =pg_escape_string($keywords);
 
-$sql = "select DISTINCT (select row_to_json(row) from (select  array_agg(a.id) as ids, " 
+$sql = "select DISTINCT (select row_to_json(row) from (select  array_agg(a.id) as ids, array_agg(a.type) as types, " 
      . "array_agg(a.name)as names, array_agg(a.award) as awards, array_agg(a.fiscal_year) as fiscal_years) row)::varchar as students, " 
      . "sum(a.award) as awards, gi.\"returned address\" as address, a.institution, "
      . "ST_AsGeoJSON(gi.geom)::varchar as geo from awards a, "
      . "geocoded_institutions gi WHERE gi.\"original address\" = a.institution AND a.fiscal_year >= {$year_start} "
      . "AND a.fiscal_year <= {$year_end}" 
-     . " AND a.keywords ilike '%{$escaped_keywords}%' GROUP BY gi.\"returned address\", a.institution, gi.geom";
+     . " AND (a.keywords ilike '%{$escaped_keywords}%' OR a.title ilike '%{$escaped_keywords}%' OR a.summary ilike '%{$escaped_keywords}%') GROUP BY gi.\"returned address\", a.institution, gi.geom LIMIT {$limit}";
 
 error_log($sql);
 
@@ -59,6 +62,7 @@ while ($row = pg_fetch_assoc($result)) {
    //var_dump($students);
 
    $student_ids = array_values($students->ids);
+   $student_types = array_values($students->types);
    $student_names = array_values($students->names);
    $student_awards = array_values($students->awards);   
    $student_years = array_values($students->fiscal_years);
@@ -68,6 +72,7 @@ while ($row = pg_fetch_assoc($result)) {
 
      $rec = new stdClass(); 
      $rec->id = $student_ids[$key];
+     $rec->type = $student_types[$key];
      $rec->name = $student_names[$key];
      $rec->award = $student_awards[$key];
      $rec->fiscal_year = $student_years[$key];
