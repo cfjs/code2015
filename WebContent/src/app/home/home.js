@@ -140,7 +140,9 @@ angular.module( 'cfjs.home', [
 					*/
 						return L.marker(latlng, {
 							icon: new L.icon({ 
-								iconUrl: "assets/university.png"
+								iconUrl: "assets/university.png",
+								iconSize: [32, 32],
+								iconAnchor: [16, 16]
 							})
 						});
 					}
