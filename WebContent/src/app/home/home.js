@@ -110,7 +110,7 @@ angular.module( 'cfjs.home', [
 	$scope.performSearch = function() {
 		$scope.searching = true;
 //		$.ajax({
-//			  url: "http://167.88.46.149/service/",
+//			  url: "http://167.88.46.149/service?keywords=" + $scope.keywords,
 //			  type: "GET",
 //			  data: {},
 //			    crossDomain: true,
@@ -121,7 +121,8 @@ angular.module( 'cfjs.home', [
 //			  password: "password123",
 //			  contentType: "application/json"
 //			});
-	    $.get("service/").success(callbackSuccess).fail(callbackFailure);
+		var query = "service/?keywords=" + $scope.keywords;
+		$.get(query).success(callbackSuccess).fail(callbackFailure);
 		
 		function callbackSuccess(data, status) {
 	        angular.extend($scope, {
@@ -154,12 +155,9 @@ angular.module( 'cfjs.home', [
 	$scope.selectedMarkerDetail = {};
 	$scope.openMarkerDetail = function(marker) {		
 		$scope.selectedMarkerDetail = {
-			name: "Université Laval",
-			address: "123 Fake Street",
-			students: [{
-				name: "JS",
-				award: '400k'
-			}]
+			name: marker.name,
+			address: marker.address,
+			students: marker.students
 		};
 
     	leftSidebar.hide();
