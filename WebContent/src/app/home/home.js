@@ -153,7 +153,8 @@ angular.module( 'cfjs.home', [
 		}
 		*/
 
-	    $.get("service/").success(function(data, status) {
+		var query = "service/?keywords=" + $scope.keywords; 
+	    $.get(query).success(function(data, status) {
 	        angular.extend($scope, {
 	            geojson: {
 	                data: data,
@@ -178,12 +179,9 @@ angular.module( 'cfjs.home', [
 	$scope.selectedMarkerDetail = {};
 	$scope.openMarkerDetail = function(marker) {		
 		$scope.selectedMarkerDetail = {
-			name: "Université Laval",
-			address: "123 Fake Street",
-			students: [{
-				name: "JS",
-				award: '400k'
-			}]
+			name: marker.name,
+			address: marker.address,
+			students: marker.students
 		};
 
     	leftSidebar.hide();
